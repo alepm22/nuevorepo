@@ -4,7 +4,10 @@ const metricaForm = document.querySelector("#metrica-form");
 const botonRegresar = document.querySelector("#boton-regresar2");
 const div = document.querySelector("#resultado-div");
 
-let proyectoActual = JSON.parse(localStorage.getItem("proyectoActual")) || { metricas: [] };
+const parametros = new URLSearchParams(window.location.search);
+const titulo = parametros.get("Titulo");
+let proyectos = JSON.parse(localStorage.getItem("proyectos")) || [];
+const proyectoActual = proyectos.find(proyecto => titulo === proyecto.titulo);
 
 metricaForm.addEventListener("submit", (event) => {
     event.preventDefault(); 
@@ -16,7 +19,10 @@ metricaForm.addEventListener("submit", (event) => {
     const metrica = crearMetrica(pruebas, lineas, cobertura);
     if (metrica !== null) {
         agregarMetricaAProyecto(metrica, proyectoActual);
-        localStorage.setItem("proyectoActual", JSON.stringify(proyectoActual));
+        const index = proyectos.findIndex(proyecto => proyecto.titulo === proyectoActual.titulo);
+        proyectos[index] = proyectoActual;
+
+        localStorage.setItem("proyectos", JSON.stringify(proyectos));
         div.innerHTML = "<p>Métrica creada correctamente.</p>";
 
         // Redirige a la página verMetricas.html para mostrar las métricas actualizadas

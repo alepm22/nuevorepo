@@ -54,6 +54,7 @@ mostrarMetricasButton.addEventListener("click", () => {
     const proyectoCodificado = encodeURIComponent(proyectoJSON);
 
     // Construir la URL con el título del proyecto y el proyecto codificado
+
     const url = `verMetricas.html?Titulo=${encodeURIComponent(tituloProyecto)}&Proyecto=${proyectoCodificado}`;
 
     // Redirigir a la página verMetricas.html
