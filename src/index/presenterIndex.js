@@ -30,7 +30,10 @@ proyectos.forEach((proyecto) => {
   const agregarMetricaButton = document.createElement("button");
   agregarMetricaButton.textContent = "Agregar Métrica";
   agregarMetricaButton.addEventListener("click", () => {
-    const url = `metricas.html?Titulo=${encodeURIComponent(proyecto.titulo)}`;
+    const tituloProyecto = proyecto.titulo;
+    const proyectoJSON = JSON.stringify(proyecto);
+    const proyectoCodificado = encodeURIComponent(proyectoJSON);
+    const url = `Metricas.html?Titulo=${encodeURIComponent(tituloProyecto)}&Proyecto=${proyectoCodificado}`;
     window.location.href = url;
   });
   proyectoElement.appendChild(agregarMetricaButton);
