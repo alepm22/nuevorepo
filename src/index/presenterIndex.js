@@ -38,30 +38,17 @@ proyectos.forEach((proyecto) => {
   });
   proyectoElement.appendChild(agregarMetricaButton);
   
-// Crear el botón "Mostrar Métricas"
 const mostrarMetricasButton = document.createElement("button");
 mostrarMetricasButton.textContent = "Mostrar Métricas";
 
-// Agregar el evento de clic al botón
 mostrarMetricasButton.addEventListener("click", () => {
-    // Obtener el título del proyecto
     const tituloProyecto = proyecto.titulo;
-
-    // Serializar el objeto de proyecto a cadena JSON
     const proyectoJSON = JSON.stringify(proyecto);
-
-    // Codificar el proyecto JSON para pasar como parámetro en la URL
     const proyectoCodificado = encodeURIComponent(proyectoJSON);
-
-    // Construir la URL con el título del proyecto y el proyecto codificado
-
     const url = `verMetricas.html?Titulo=${encodeURIComponent(tituloProyecto)}&Proyecto=${proyectoCodificado}`;
-
-    // Redirigir a la página verMetricas.html
     window.location.href = url;
 });
 
-// Agregar el botón al elemento proyectoElement
 proyectoElement.appendChild(mostrarMetricasButton);
 
 
