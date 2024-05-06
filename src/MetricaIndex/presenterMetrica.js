@@ -24,8 +24,6 @@ metricaForm.addEventListener("submit", (event) => {
 
         localStorage.setItem("proyectos", JSON.stringify(proyectos));
         div.innerHTML = "<p>Métrica creada correctamente.</p>";
-
-        // Redirige a la página verMetricas.html para mostrar las métricas actualizadas
         window.location.href = `verMetricas.html?Titulo=${encodeURIComponent(proyectoActual.titulo)}&Proyecto=${encodeURIComponent(JSON.stringify(proyectoActual))}`;
     } else {
         div.innerHTML = "<p>Por favor, ingrese valores válidos para las métricas.</p>";

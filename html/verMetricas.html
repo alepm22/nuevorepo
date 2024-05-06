@@ -4,14 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ver Métricas del Proyecto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .metrica {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .metrica h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .puntaje-total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .descripcion-total {
+            font-size: 18px;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
-    <h1>Métricas del Proyecto</h1>
-    <div id="metricas-container">
-        <!-- Aquí se mostrarán las métricas -->
+    <div class="container">
+        <h1>Métricas del Proyecto</h1>
+        <div id="metricas-container">
+            <!-- Aquí se mostrarán las métricas -->
+        </div>
+        <div id="error-div"></div>
+        <button id="boton-regresar">Regresar</button>
     </div>
-    <div id="error-div"></div>
-    <button id="boton-regresar">Regresar</button>
     <script type="module" src="../src/MetricaIndex/presenterVerMetrica.js"></script>
 </body>
 </html>
