@@ -121,19 +121,19 @@ function obtenerDescripcionTotal(puntajeTotal) {
     }
 
     function eliminarMetricaDeProyecto(metrica, proyecto) {
-        if (!proyecto || !Array.isArray(proyecto.metricas)) {
+      if (!proyecto || !Array.isArray(proyecto.metricas)) {
           return "No se puede eliminar una métrica que no existe en el proyecto";
-        } else {
+      } else {
           const indiceMetricaAEliminar = proyecto.metricas.indexOf(metrica);
           if (indiceMetricaAEliminar === -1) {
-            return "No se puede eliminar una métrica que no existe en el proyecto";
+              return "No se puede eliminar una métrica que no existe en el proyecto";
           } else {
-            proyecto.metricas.splice(indiceMetricaAEliminar, 1);
-            return "Se eliminó la métrica del proyecto con éxito";
+              proyecto.metricas.splice(indiceMetricaAEliminar, 1);
+              return "Se eliminó la métrica del proyecto con éxito";
           }
-        }
       }
-
+  }
+  
 
       function mostrarMetricasProyecto(proyecto) {
         const metricasContainer = document.querySelector("#metricas-container");
@@ -161,8 +161,10 @@ function obtenerDescripcionTotal(puntajeTotal) {
                 <p>Cobertura: ${metrica.cobertura}%</p>
                 <p>Puntuación Cobertura: ${puntajeCobertura} - ${descripcionCobertura}</p>
                 <p>Puntaje Total: ${puntajeTotal} - ${descripcionTotal}</p>
+                <button class="eliminar-metrica" data-metrica-index="${index}">Eliminar Métrica</button>
             `;
             metricasContainer.appendChild(metricaElement);
+
         });
     }
     
