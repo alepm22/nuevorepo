@@ -4,8 +4,8 @@
   "description": "",
   "default": "index.html",
   "scripts": {
-    "start": "parcel ./html/index.html ./html/proyectos.html",
-    "build": "parcel build ./html/index.html ./html/proyectos.html",
+    "start": "parcel ./html/index.html ./html/proyectos.html ./html/Metricas.html ./html/verMetricas.html",
+    "build": "parcel build ./html/index.html ./html/proyectos.html ./html/Metricas.html ./html/verMetricas.html",
     "test": "jest --watch",
     "test-once": "jest --verbose --coverage",
     "cypress": "cypress open",
