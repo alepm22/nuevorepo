@@ -33,7 +33,7 @@ describe("crearMetrica", () => {
   it("Debería mostrar un mensaje si los valores superan 100", () => {
     console.log = jest.fn(); 
     crearMetrica(200, 150, 120);
-    expect(console.log).toHaveBeenCalledWith("Ponga un valor real porfavor");
+    expect(console.log).toHaveBeenCalledWith("Ponga un valor real por favor");
   });
 
 });

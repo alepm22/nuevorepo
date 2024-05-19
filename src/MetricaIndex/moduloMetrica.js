@@ -132,7 +132,7 @@ function obtenerDescripcionTotal(puntajeTotal) {
               return "Se eliminó la métrica del proyecto con éxito";
           }
       }
-  }
+    }
   
 
       function mostrarMetricasProyecto(proyecto) {
