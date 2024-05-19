@@ -45,9 +45,9 @@ import Metrica from "../Metrica.js";
     } else {
         return 5; 
     }
-}
+  }
 
-function calcularPuntajeLineas(lineasDeCodigo) {
+  function calcularPuntajeLineas(lineasDeCodigo) {
     if (lineasDeCodigo <= 100) {
         return 10; 
     } else if (lineasDeCodigo <= 500) {
@@ -55,9 +55,9 @@ function calcularPuntajeLineas(lineasDeCodigo) {
     } else {
         return 5; 
     }
-}
+  }
 
-function calcularPuntajeCobertura(cobertura) {
+  function calcularPuntajeCobertura(cobertura) {
     if (cobertura >= 90) {
         return 10; 
     } else if (cobertura >= 70) {
@@ -65,9 +65,9 @@ function calcularPuntajeCobertura(cobertura) {
     } else {
         return 5; 
     }
-}
+  }
 
-function obtenerDescripcionPruebas(puntajePruebas) {
+  function obtenerDescripcionPruebas(puntajePruebas) {
   if (puntajePruebas >= 9) {
       return "Excelente: Se han realizado suficientes pruebas para garantizar la calidad del código.";
   } else if (puntajePruebas >= 7) {
@@ -75,9 +75,9 @@ function obtenerDescripcionPruebas(puntajePruebas) {
   } else {
       return "Insuficiente: La cantidad de pruebas realizadas es baja, lo que puede afectar la calidad del código.";
   }
-}
+  }
 
-function obtenerDescripcionLineas(puntajeLineas) {
+  function obtenerDescripcionLineas(puntajeLineas) {
   if (puntajeLineas >= 9) {
       return "Excelente: El tamaño del código es óptimo, lo que facilita su mantenimiento y comprensión.";
   } else if (puntajeLineas >= 7) {
@@ -85,9 +85,9 @@ function obtenerDescripcionLineas(puntajeLineas) {
   } else {
       return "Demasiado grande: El código es demasiado extenso, lo que puede dificultar su mantenimiento y comprensión.";
   }
-}
+  }
 
-function obtenerDescripcionCobertura(puntajeCobertura) {
+  function obtenerDescripcionCobertura(puntajeCobertura) {
   if (puntajeCobertura >= 9) {
       return "Excelente: La cobertura de pruebas es muy alta, lo que garantiza una amplia protección contra errores.";
   } else if (puntajeCobertura >= 7) {
@@ -95,10 +95,10 @@ function obtenerDescripcionCobertura(puntajeCobertura) {
   } else {
       return "Insuficiente: La cobertura de pruebas es baja, lo que deja áreas críticas sin suficiente protección.";
   }
-}
+  }
 
 
-function obtenerDescripcionTotal(puntajeTotal) {
+  function obtenerDescripcionTotal(puntajeTotal) {
   if (puntajeTotal >= 25) {
       return "Excelente, el proyecto tiene un alto nivel de calidad.";
   } else if (puntajeTotal >= 20) {
@@ -108,7 +108,7 @@ function obtenerDescripcionTotal(puntajeTotal) {
   } else {
       return "Se requieren mejoras significativas, el proyecto tiene un bajo nivel de calidad.";
   }
-}
+  }
 
 
   function agregarMetricaAProyecto(metrica, proyecto) {
@@ -118,9 +118,9 @@ function obtenerDescripcionTotal(puntajeTotal) {
       proyecto.metricas.push(metrica);
       return proyecto.metricas[proyecto.metricas.length - 1];
       }
-    }
+  }
 
-    function eliminarMetricaDeProyecto(metrica, proyecto) {
+  function eliminarMetricaDeProyecto(metrica, proyecto) {
       if (!proyecto || !Array.isArray(proyecto.metricas)) {
           return "No se puede eliminar una métrica que no existe en el proyecto";
       } else {
@@ -132,10 +132,19 @@ function obtenerDescripcionTotal(puntajeTotal) {
               return "Se eliminó la métrica del proyecto con éxito";
           }
       }
+  }
+
+  function actualizarProyectoEnArray(proyectoActualizado) {
+    const proyectos = JSON.parse(localStorage.getItem("proyectos")) || [];
+    const index = proyectos.findIndex(proyecto => proyecto.titulo === proyectoActualizado.titulo);
+    if (index !== -1) {
+        proyectos[index] = proyectoActualizado;
+        localStorage.setItem("proyectos", JSON.stringify(proyectos));
     }
+  }
   
 
-      function mostrarMetricasProyecto(proyecto) {
+  function mostrarMetricasProyecto(proyecto) {
         const metricasContainer = document.querySelector("#metricas-container");
         metricasContainer.innerHTML = ""; 
     
@@ -172,4 +181,4 @@ function obtenerDescripcionTotal(puntajeTotal) {
  
   
 
-    export { crearMetrica, agregarMetricaAProyecto, eliminarMetricaDeProyecto, mostrarMetricasProyecto };
+  export { crearMetrica, agregarMetricaAProyecto, eliminarMetricaDeProyecto, mostrarMetricasProyecto,actualizarProyectoEnArray };

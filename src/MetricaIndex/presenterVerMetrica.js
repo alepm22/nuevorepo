@@ -1,4 +1,4 @@
-import { mostrarMetricasProyecto, eliminarMetricaDeProyecto } from "./moduloMetrica.js";
+import { mostrarMetricasProyecto, eliminarMetricaDeProyecto,actualizarProyectoEnArray } from "./moduloMetrica.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,14 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const metricaIndex = parseInt(this.dataset.metricaIndex);
         const metricaEliminada = proyecto.metricas[metricaIndex];
         const eliminacionExitosa = eliminarMetricaDeProyecto(metricaEliminada, proyecto);
+        
         if (eliminacionExitosa) {
             this.parentNode.remove();
             localStorage.setItem("proyectoActual", JSON.stringify(proyecto));
+            actualizarProyectoEnArray(proyecto);
         } else {
-            console.error("Error al eliminar la metrica del proyecto");
+            console.error("Error al eliminar la métrica del proyecto");
         }
     });
-});
+    });
 
      const botonRegresar = document.querySelector("#boton-regresar");
      botonRegresar.addEventListener("click", function() {
