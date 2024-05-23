@@ -1,4 +1,4 @@
-import { crearMetrica, agregarMetricaAProyecto } from "./moduloMetrica.js";
+import Metrica from "../Metrica.js";
 
 const metricaForm = document.querySelector("#metrica-form");
 const botonRegresar = document.querySelector("#boton-regresar2");
