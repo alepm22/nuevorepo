@@ -1,4 +1,4 @@
-import datosFormulariosSonValidos from "./moduloProyectos";
+import Proyecto from "../Proyecto.js";
 
 const titulo = document.querySelector("#titulo");
 const descripcion = document.querySelector("#descripcion");
@@ -11,14 +11,12 @@ proyectosForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const contenidoTitulo = titulo.value;
   const contenidoDescripcion = descripcion.value;
-  if(datosFormulariosSonValidos(contenidoTitulo, contenidoDescripcion)==true)
+  const proyecto = new Proyecto();
+  if (proyecto.datosFormulariosSonValidos(contenidoTitulo, contenidoDescripcion)==true)
   {
-    
     const url = `index.html?Titulo=${encodeURIComponent(contenidoTitulo)}&Descripcion=${encodeURIComponent(contenidoDescripcion)}`;
 
-            
-  window.location.href = url;
-      
+    window.location.href = url;
   }
   else{
     div.innerHTML = "<p>" + "Llene todos los campos" + "</p>";
