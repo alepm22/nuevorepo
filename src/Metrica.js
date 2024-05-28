@@ -67,7 +67,6 @@ export default class Metrica {
         }
     }
 
-
     CalcularPromedioPuntajeDeLineas(metricas) {
         const cero = 0;
         if (metricas.length === cero) {
@@ -79,8 +78,6 @@ export default class Metrica {
         });
         return sumaPuntajes / metricas.length;
     }
-
-
 
     calcularPuntajeCobertura(cobertura) {
         if (cobertura >= 90) {
@@ -134,7 +131,6 @@ export default class Metrica {
             return "Se requieren mejoras significativas, el proyecto tiene un bajo nivel de calidad.";
         }
     }
-
 
     agregarMetricaAProyecto(metrica, proyecto) {
         if (!proyecto || !Array.isArray(proyecto.metricas)) {
