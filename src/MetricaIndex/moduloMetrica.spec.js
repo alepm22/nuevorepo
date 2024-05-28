@@ -125,5 +125,17 @@ describe("Metrica", () => {
     const promedio = metrica.CalcularPromedioPuntajeDeLineas(metricas);
     expect(promedio).toBe(16);
   });
+  it("debería devolver 0 si todas las métricas tienen un número de líneas negativo o no definido", () => {
+    const metricas = [
+      { lineasDeCodigo: -10 },
+      { lineasDeCodigo: undefined },
+      { lineasDeCodigo: -20 }
+    ];
+
+    const promedio = metrica.CalcularPromedioPuntajeDeLineas(metricas);
+
+
+    expect(promedio).toBe(0);
+  });
 
 });

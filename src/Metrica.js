@@ -75,7 +75,7 @@ export default class Metrica {
         }
         let sumaPuntajes = cero;
         metricas.forEach(metrica => {
-            sumaPuntajes += this.calcularPuntajeLineas(metrica.lineasDeCodigo);
+            sumaPuntajes += isNaN(metrica.lineasDeCodigo) || metrica.lineasDeCodigo < 0 ? 0 : this.calcularPuntajeLineas(metrica.lineasDeCodigo);
         });
         return sumaPuntajes / metricas.length;
     }
