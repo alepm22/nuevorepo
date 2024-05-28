@@ -89,6 +89,8 @@ export default class Metrica {
             return puntaje16;
         } else if (cobertura >= 70) {
             return puntaje12;
+        } else {
+            return 8;
         }
     }
 
