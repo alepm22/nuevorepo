@@ -73,7 +73,7 @@ export default class Metrica {
         if (metricas.length === cero) {
             return cero;
         }
-        let sumaPuntajes = 0;
+        let sumaPuntajes = cero;
         metricas.forEach(metrica => {
             sumaPuntajes += this.calcularPuntajeLineas(metrica.lineasDeCodigo);
         });
