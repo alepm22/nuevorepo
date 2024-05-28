@@ -52,17 +52,18 @@ export default class Metrica {
     }
 
     calcularPuntajeLineas(lineasDeCodigo) {
-        const numero20 = 20;
-        const numero16 = 16;
-        const numero12 = 12;
-        if (lineasDeCodigo <= numero20) {
-            return numero20;
+        const puntaje20 = 20;
+        const puntaje16 = 16;
+        const puntaje12 = 12;
+        const puntaje8 = 8;
+        if (lineasDeCodigo <= 20) {
+            return puntaje20;
         } else if (lineasDeCodigo <= 40) {
-            return numero16;
+            return puntaje16;
         } else if (lineasDeCodigo <= 60) {
-            return numero12;
+            return puntaje12;
         } else {
-            return 8;
+            return puntaje8;
         }
     }
 
