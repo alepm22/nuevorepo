@@ -67,7 +67,7 @@ export default class Metrica {
         }
     }
 
-    CalcularPromedioPuntajeDeLineas(metricas) {
+    calcularPromedioPuntajeDeLineas(metricas) {
         const cero = 0;
         if (metricas.length === cero) {
             return cero;
@@ -81,12 +81,8 @@ export default class Metrica {
 
     calcularPuntajeCobertura(cobertura) {
         if (cobertura >= 90) {
-            return 10;
-        } else if (cobertura >= 70) {
-            return 8;
-        } else {
-            return 5;
-        }
+            return 20;
+        } 
     }
 
     obtenerDescripcionPruebas(puntajePruebas) {

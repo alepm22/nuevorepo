@@ -109,10 +109,10 @@ describe("Metrica", () => {
     metrica = new Metrica();
   });
 
-  describe("CalcularPromedioPuntajeDeLineas", () => {
+  describe("calcularPromedioPuntajeDeLineas", () => {
     it("debería devolver 0 si no se proporcionan métricas", () => {
       const metricas = [];
-      expect(metrica.CalcularPromedioPuntajeDeLineas(metricas)).toBe(0);
+      expect(metrica.calcularPromedioPuntajeDeLineas(metricas)).toBe(0);
     });
   });
 
@@ -122,7 +122,7 @@ describe("Metrica", () => {
       { lineasDeCodigo: 30 },  // Puntaje 16
       { lineasDeCodigo: 50 }   // Puntaje 12
     ];
-    const promedio = metrica.CalcularPromedioPuntajeDeLineas(metricas);
+    const promedio = metrica.calcularPromedioPuntajeDeLineas(metricas);
     expect(promedio).toBe(16);
   });
 
@@ -132,8 +132,17 @@ describe("Metrica", () => {
       { lineasDeCodigo: undefined },
       { lineasDeCodigo: -20 }
     ];
-    const promedio = metrica.CalcularPromedioPuntajeDeLineas(metricas);
+    const promedio = metrica.calcularPromedioPuntajeDeLineas(metricas);
     expect(promedio).toBe(0);
   });
 
 });
+
+describe("calcularPuntajeCobertura", () => {
+  it("Debería devolver 20 cuando el porcentaje de cobertura sea mas de 90", () => {
+    const metrica = new Metrica();
+    expect(metrica.calcularPuntajeCobertura(90)).toBe(20);
+    expect(metrica.calcularPuntajeCobertura(100)).toBe(20);
+    expect(metrica.calcularPuntajeCobertura(120)).toBe(20);
+  });
+})
