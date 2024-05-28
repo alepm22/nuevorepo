@@ -1,4 +1,4 @@
-import { mostrarMetricasProyecto, eliminarMetricaDeProyecto,actualizarProyectoEnArray } from "./moduloMetrica.js";
+import Metrica from "../Metrica.js"; 
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     tituloProyectoElement.textContent = `Título del Proyecto: ${tituloProyecto}`;
     metricasContainer.appendChild(tituloProyectoElement);
 
-    mostrarMetricasProyecto(proyecto);
+    const metrica = new Metrica();
+    metrica.mostrarMetricasProyecto(proyecto);
     
 
     const botonesEliminarMetrica = document.querySelectorAll(".eliminar-metrica");
@@ -21,12 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
     boton.addEventListener("click", function() {
         const metricaIndex = parseInt(this.dataset.metricaIndex);
         const metricaEliminada = proyecto.metricas[metricaIndex];
-        const eliminacionExitosa = eliminarMetricaDeProyecto(metricaEliminada, proyecto);
+        const eliminacionExitosa = metrica.eliminarMetricaDeProyecto(metricaEliminada, proyecto);
         
         if (eliminacionExitosa) {
             this.parentNode.remove();
             localStorage.setItem("proyectoActual", JSON.stringify(proyecto));
-            actualizarProyectoEnArray(proyecto);
+            metrica.actualizarProyectoEnArray(proyecto);
         } else {
             console.error("Error al eliminar la métrica del proyecto");
         }

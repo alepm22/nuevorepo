@@ -1,4 +1,4 @@
-import { crearMetrica, agregarMetricaAProyecto } from "./moduloMetrica.js";
+import Metrica from "../Metrica.js";
 
 const metricaForm = document.querySelector("#metrica-form");
 const botonRegresar = document.querySelector("#boton-regresar2");
@@ -16,9 +16,10 @@ metricaForm.addEventListener("submit", (event) => {
     const lineas = parseInt(metricaForm.querySelector("#lineas").value);
     const cobertura = parseInt(metricaForm.querySelector("#cobertura").value);
 
-    const metrica = crearMetrica(pruebas, lineas, cobertura);
+    const aux = new Metrica();
+    const metrica = aux.crearMetrica(pruebas, lineas, cobertura);
     if (metrica !== null) {
-        agregarMetricaAProyecto(metrica, proyectoActual);
+        metrica.agregarMetricaAProyecto(metrica, proyectoActual);
         const index = proyectos.findIndex(proyecto => proyecto.titulo === proyectoActual.titulo);
         proyectos[index] = proyectoActual;
 
