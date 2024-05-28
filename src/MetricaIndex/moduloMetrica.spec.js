@@ -95,5 +95,10 @@ describe("calcularPuntajeLineas", () => {
     expect(metrica.calcularPuntajeLineas(50)).toBe(12);
     expect(metrica.calcularPuntajeLineas(60)).toBe(12);
   });
-  
+  it("Debería devolver 8 cuando las lineas de codigo son mas de 60", () => {
+    const metrica = new Metrica();
+    expect(metrica.calcularPuntajeLineas(61)).toBe(8);
+    expect(metrica.calcularPuntajeLineas(100)).toBe(8);
+  });
+
 })

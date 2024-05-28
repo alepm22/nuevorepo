@@ -61,7 +61,9 @@ export default class Metrica {
             return numero16;
         } else if (lineasDeCodigo <= 60) {
             return numero12;
-        } 
+        } else {
+            return 8;
+        }
     }
 
     calcularPuntajeCobertura(cobertura) {
