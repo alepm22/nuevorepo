@@ -58,6 +58,8 @@ export default class Metrica {
             return numero20;
         } else if (lineasDeCodigo <= 40) {
             return numero16;
+        } else if (lineasDeCodigo <= 60) {
+            return 12;
         }
     }
 
