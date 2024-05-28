@@ -164,3 +164,20 @@ describe("calcularPuntajeCobertura", () => {
     expect(metrica.calcularPuntajeCobertura(1)).toBe(8);
   });
 })
+
+describe("Metrica", () => {
+  let metrica;
+
+  beforeEach(() => {
+    metrica = new Metrica();
+  });
+
+  describe("calcularPromedioPuntajeDeCobertura", () => {
+    it("debería devolver 0 si no se proporcionan métricas", () => {
+      const metricas = [];
+      expect(metrica.calcularPromedioPuntajeDeCobertura(metricas)).toBe(0);
+    });
+  });
+
+
+});

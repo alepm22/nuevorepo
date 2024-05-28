@@ -67,6 +67,8 @@ export default class Metrica {
         }
     }
 
+
+
     calcularPromedioPuntajeDeLineas(metricas) {
         const cero = 0;
         if (metricas.length === cero) {
@@ -92,6 +94,12 @@ export default class Metrica {
             return puntaje12;
         } else {
             return puntaje8;
+        }
+    }
+
+    calcularPromedioPuntajeDeCobertura(metricas) {
+        if (metricas.length === 0) {
+            return 0;
         }
     }
 
