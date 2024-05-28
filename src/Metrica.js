@@ -67,6 +67,15 @@ export default class Metrica {
         }
     }
 
+
+    CalcularPromedioPuntajeDeLineas(metricas){
+        if (metricas.length === 0) {
+            return 0;
+        }
+    }
+
+    
+
     calcularPuntajeCobertura(cobertura) {
         if (cobertura >= 90) {
             return 10;

@@ -100,5 +100,20 @@ describe("calcularPuntajeLineas", () => {
     expect(metrica.calcularPuntajeLineas(61)).toBe(8);
     expect(metrica.calcularPuntajeLineas(100)).toBe(8);
   });
-
 })
+
+describe("Metrica", () => {
+  let metrica;
+
+  beforeEach(() => {
+    metrica = new Metrica();
+  });
+
+  describe("CalcularPromedioPuntajeDeLineas", () => {
+    it("debería devolver 0 si no se proporcionan métricas", () => {
+      const metricas = [];
+      expect(metrica.CalcularPromedioPuntajeDeLineas(metricas)).toBe(0);
+    });
+  });
+
+});
