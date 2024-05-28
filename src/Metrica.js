@@ -54,13 +54,14 @@ export default class Metrica {
     calcularPuntajeLineas(lineasDeCodigo) {
         const numero20 = 20;
         const numero16 = 16;
+        const numero12 = 12;
         if (lineasDeCodigo <= numero20) {
             return numero20;
         } else if (lineasDeCodigo <= 40) {
             return numero16;
         } else if (lineasDeCodigo <= 60) {
-            return 12;
-        }
+            return numero12;
+        } 
     }
 
     calcularPuntajeCobertura(cobertura) {
