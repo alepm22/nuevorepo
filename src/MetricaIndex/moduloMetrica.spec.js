@@ -163,5 +163,4 @@ describe("calcularPuntajeCobertura", () => {
     expect(metrica.calcularPuntajeCobertura(65)).toBe(8);
     expect(metrica.calcularPuntajeCobertura(1)).toBe(8);
   });
-
 })
