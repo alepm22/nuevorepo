@@ -81,10 +81,11 @@ export default class Metrica {
 
     calcularPuntajeCobertura(cobertura) {
         const puntaje20 = 20;
+        const puntaje16 = 16;
         if (cobertura >= 90) {
             return puntaje20;
         } else if (cobertura >= 80) {
-            return 16;
+            return puntaje16;
         }
     }
 
