@@ -104,7 +104,7 @@ export default class Metrica {
         }
         let sumaPuntajes = 0;
         metricas.forEach(metrica => {
-            sumaPuntajes += isNaN(metrica.cobertura) || metrica.cobertura < 0 ? 0 : this.calcularPuntajeCobertura(metrica.cobertura);
+            sumaPuntajes += isNaN(metrica.cobertura) || metrica.cobertura < cero ? cero : this.calcularPuntajeCobertura(metrica.cobertura);
         });
         return sumaPuntajes / metricas.length;
     }
