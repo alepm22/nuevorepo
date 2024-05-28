@@ -11,14 +11,14 @@ export default class Metrica {
         const valorTope = 100;
 
         if (pruebasAñadidas === valornulo || pruebasAñadidas === valorindefinido || pruebasAñadidas < cero) {
-            pruebasAñadidas = cero; 
+            pruebasAñadidas = cero;
         }
         if (lineasDeCodigo === valornulo || lineasDeCodigo === valorindefinido || lineasDeCodigo < cero) {
-            lineasDeCodigo = cero; 
+            lineasDeCodigo = cero;
         }
         if (cobertura === valornulo || cobertura === valorindefinido || cobertura < cero) {
-            cobertura = cero; 
-        } 
+            cobertura = cero;
+        }
         if (pruebasAñadidas > valorTope || lineasDeCodigo > valorTope || cobertura > valorTope) {
             console.log("Ponga un valor real por favor");
             return null;
@@ -39,15 +39,15 @@ export default class Metrica {
 
         return new Metrica(pruebasAñadidas, lineasDeCodigo, cobertura, puntajeTotal, descripcionPruebas, descripcionLineas, descripcionCobertura, descripcionTotal);
 
-        }
+    }
 
     calcularPuntajePruebas(pruebasAñadidas) {
         if (pruebasAñadidas <= 10) {
-            return 10; 
+            return 10;
         } else if (pruebasAñadidas <= 20) {
-            return 8; 
+            return 8;
         } else {
-            return 5; 
+            return 5;
         }
     }
 
@@ -55,59 +55,61 @@ export default class Metrica {
         const numero20 = 20;
         if (lineasDeCodigo <= numero20) {
             return numero20;
+        } else if (lineasDeCodigo <= 40) {
+            return 16;
         }
     }
 
     calcularPuntajeCobertura(cobertura) {
         if (cobertura >= 90) {
-            return 10; 
+            return 10;
         } else if (cobertura >= 70) {
-            return 8; 
+            return 8;
         } else {
-            return 5; 
+            return 5;
         }
     }
 
     obtenerDescripcionPruebas(puntajePruebas) {
         if (puntajePruebas >= 9) {
-          return "Excelente: Se han realizado suficientes pruebas para garantizar la calidad del código.";
+            return "Excelente: Se han realizado suficientes pruebas para garantizar la calidad del código.";
         } else if (puntajePruebas >= 7) {
-          return "Bueno: Se han realizado pruebas adecuadas, pero pueden ser mejoradas para una cobertura más completa.";
+            return "Bueno: Se han realizado pruebas adecuadas, pero pueden ser mejoradas para una cobertura más completa.";
         } else {
-          return "Insuficiente: La cantidad de pruebas realizadas es baja, lo que puede afectar la calidad del código.";
+            return "Insuficiente: La cantidad de pruebas realizadas es baja, lo que puede afectar la calidad del código.";
         }
     }
 
     obtenerDescripcionLineas(puntajeLineas) {
         if (puntajeLineas >= 9) {
-          return "Excelente: El tamaño del código es óptimo, lo que facilita su mantenimiento y comprensión.";
+            return "Excelente: El tamaño del código es óptimo, lo que facilita su mantenimiento y comprensión.";
         } else if (puntajeLineas >= 7) {
-          return "Bueno: El tamaño del código es adecuado, aunque se pueden hacer mejoras para reducir la complejidad.";
+            return "Bueno: El tamaño del código es adecuado, aunque se pueden hacer mejoras para reducir la complejidad.";
         } else {
-          return "Demasiado grande: El código es demasiado extenso, lo que puede dificultar su mantenimiento y comprensión.";
+            return "Demasiado grande: El código es demasiado extenso, lo que puede dificultar su mantenimiento y comprensión.";
         }
-        }
+    }
 
     obtenerDescripcionCobertura(puntajeCobertura) {
         if (puntajeCobertura >= 9) {
-          return "Excelente: La cobertura de pruebas es muy alta, lo que garantiza una amplia protección contra errores.";
+            return "Excelente: La cobertura de pruebas es muy alta, lo que garantiza una amplia protección contra errores.";
         } else if (puntajeCobertura >= 7) {
-          return "Bueno: La cobertura de pruebas es adecuada, aunque pueden existir áreas que necesiten más pruebas.";
+            return "Bueno: La cobertura de pruebas es adecuada, aunque pueden existir áreas que necesiten más pruebas.";
         } else {
-          return "Insuficiente: La cobertura de pruebas es baja, lo que deja áreas críticas sin suficiente protección.";
+            return "Insuficiente: La cobertura de pruebas es baja, lo que deja áreas críticas sin suficiente protección.";
         }
     }
 
 
     obtenerDescripcionTotal(puntajeTotal) {
         if (puntajeTotal >= 25) {
-          return "Excelente, el proyecto tiene un alto nivel de calidad.";
+            return "Excelente, el proyecto tiene un alto nivel de calidad.";
         } else if (puntajeTotal >= 20) {
-          return "Buen trabajo, el proyecto tiene un nivel aceptable de calidad.";
+            return "Buen trabajo, el proyecto tiene un nivel aceptable de calidad.";
         } else if (puntajeTotal >= 15) {
-          return "El proyecto necesita mejoras para alcanzar un nivel adecuado de calidad.";
+            return "El proyecto necesita mejoras para alcanzar un nivel adecuado de calidad.";
         } else {
-          return "Se requieren mejoras significativas, el proyecto tiene un bajo nivel de calidad.";
+            return "Se requieren mejoras significativas, el proyecto tiene un bajo nivel de calidad.";
         }
     }
 
@@ -116,8 +118,8 @@ export default class Metrica {
         if (!proyecto || !Array.isArray(proyecto.metricas)) {
             return "No se puede agregar una métrica a un proyecto no existente";
         } else {
-          proyecto.metricas.push(metrica);
-          return proyecto.metricas[proyecto.metricas.length - 1];
+            proyecto.metricas.push(metrica);
+            return proyecto.metricas[proyecto.metricas.length - 1];
         }
     }
 
@@ -125,13 +127,13 @@ export default class Metrica {
         if (!proyecto || !Array.isArray(proyecto.metricas)) {
             return "No se puede eliminar una métrica que no existe en el proyecto";
         } else {
-          const indiceMetricaAEliminar = proyecto.metricas.indexOf(metrica);
-          if (indiceMetricaAEliminar === -1) {
-              return "No se puede eliminar una métrica que no existe en el proyecto";
-          } else {
-              proyecto.metricas.splice(indiceMetricaAEliminar, 1);
-              return "Se eliminó la métrica del proyecto con éxito";
-          }
+            const indiceMetricaAEliminar = proyecto.metricas.indexOf(metrica);
+            if (indiceMetricaAEliminar === -1) {
+                return "No se puede eliminar una métrica que no existe en el proyecto";
+            } else {
+                proyecto.metricas.splice(indiceMetricaAEliminar, 1);
+                return "Se eliminó la métrica del proyecto con éxito";
+            }
         }
     }
 
@@ -147,7 +149,7 @@ export default class Metrica {
 
     mostrarMetricasProyecto(proyecto) {
         const metricasContainer = document.querySelector("#metricas-container");
-        metricasContainer.innerHTML = ""; 
+        metricasContainer.innerHTML = "";
 
         proyecto.metricas.forEach((metrica, index) => {
             const puntajePruebas = this.calcularPuntajePruebas(metrica.pruebasAñadidas);
