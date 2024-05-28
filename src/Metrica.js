@@ -102,9 +102,9 @@ export default class Metrica {
         if (metricas.length === cero) {
             return cero;
         }
-        let sumaPuntajes = cero;
+        let sumaPuntajes = 0;
         metricas.forEach(metrica => {
-            sumaPuntajes += this.calcularPuntajeCobertura(metrica.cobertura);
+            sumaPuntajes += isNaN(metrica.cobertura) || metrica.cobertura < 0 ? 0 : this.calcularPuntajeCobertura(metrica.cobertura);
         });
         return sumaPuntajes / metricas.length;
     }

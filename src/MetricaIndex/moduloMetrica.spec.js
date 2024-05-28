@@ -189,4 +189,14 @@ describe("Metrica", () => {
     expect(promedio).toBe(16);
   });
 
+  it("debería devolver 0 si todas las métricas tienen un número de líneas negativo o no definido", () => {
+    const metricas = [
+      { cobertura: -10 },
+      { cobertura: undefined },
+      { cobertura: -20 }
+    ];
+    const promedio = metrica.calcularPromedioPuntajeDeCobertura(metricas);
+    expect(promedio).toBe(0);
+  });
+
 });
