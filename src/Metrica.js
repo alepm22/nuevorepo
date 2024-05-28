@@ -153,15 +153,15 @@ export default class Metrica {
         metricasContainer.innerHTML = ""; 
 
         proyecto.metricas.forEach((metrica, index) => {
-            const puntajePruebas = calcularPuntajePruebas(metrica.pruebasAñadidas);
-            const puntajeLineas = calcularPuntajeLineas(metrica.lineasDeCodigo);
-            const puntajeCobertura = calcularPuntajeCobertura(metrica.cobertura);
+            const puntajePruebas = this.calcularPuntajePruebas(metrica.pruebasAñadidas);
+            const puntajeLineas = this.calcularPuntajeLineas(metrica.lineasDeCodigo);
+            const puntajeCobertura = this.calcularPuntajeCobertura(metrica.cobertura);
             const puntajeTotal = puntajePruebas + puntajeLineas + puntajeCobertura;
 
-            const descripcionPruebas = obtenerDescripcionPruebas(puntajePruebas);
-            const descripcionLineas = obtenerDescripcionLineas(puntajeLineas);
-            const descripcionCobertura = obtenerDescripcionCobertura(puntajeCobertura);
-            const descripcionTotal = obtenerDescripcionTotal(puntajeTotal);
+            const descripcionPruebas = this.obtenerDescripcionPruebas(puntajePruebas);
+            const descripcionLineas = this.obtenerDescripcionLineas(puntajeLineas);
+            const descripcionCobertura = this.obtenerDescripcionCobertura(puntajeCobertura);
+            const descripcionTotal = this.obtenerDescripcionTotal(puntajeTotal);
 
 
             const metricaElement = document.createElement("div");

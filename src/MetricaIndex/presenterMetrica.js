@@ -19,7 +19,7 @@ metricaForm.addEventListener("submit", (event) => {
     const aux = new Metrica();
     const metrica = aux.crearMetrica(pruebas, lineas, cobertura);
     if (metrica !== null) {
-        aux.agregarMetricaAProyecto(metrica, proyectoActual);
+        metrica.agregarMetricaAProyecto(metrica, proyectoActual);
         const index = proyectos.findIndex(proyecto => proyecto.titulo === proyectoActual.titulo);
         proyectos[index] = proyectoActual;
 
