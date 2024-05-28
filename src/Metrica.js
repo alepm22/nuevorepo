@@ -53,10 +53,11 @@ export default class Metrica {
 
     calcularPuntajeLineas(lineasDeCodigo) {
         const numero20 = 20;
+        const numero16 = 16;
         if (lineasDeCodigo <= numero20) {
             return numero20;
         } else if (lineasDeCodigo <= 40) {
-            return 16;
+            return numero16;
         }
     }
 
