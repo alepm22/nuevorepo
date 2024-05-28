@@ -151,4 +151,11 @@ describe("calcularPuntajeCobertura", () => {
     expect(metrica.calcularPuntajeCobertura(85)).toBe(16);
     expect(metrica.calcularPuntajeCobertura(89)).toBe(16);
   });
+  it("Debería devolver 12 cuando el porcentaje de cobertura sea mas de 70 y menos de 80", () => {
+    const metrica = new Metrica();
+    expect(metrica.calcularPuntajeCobertura(70)).toBe(12);
+    expect(metrica.calcularPuntajeCobertura(75)).toBe(12);
+    expect(metrica.calcularPuntajeCobertura(79)).toBe(12);
+  });
+  
 })
