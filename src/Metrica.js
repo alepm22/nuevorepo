@@ -102,6 +102,11 @@ export default class Metrica {
         if (metricas.length === cero) {
             return cero;
         }
+        let sumaPuntajes = 0;
+        metricas.forEach(metrica => {
+            sumaPuntajes += this.calcularPuntajeCobertura(metrica.cobertura);
+        });
+        return sumaPuntajes / metricas.length;
     }
 
     obtenerDescripcionPruebas(puntajePruebas) {

@@ -179,5 +179,14 @@ describe("Metrica", () => {
     });
   });
 
+  it("debería calcular el promedio correctamente con métricas válidas", () => {
+    const metricas = [
+      { cobertura: 90 },  // Puntaje 20
+      { cobertura: 85 },  // Puntaje 16
+      { cobertura: 75 }   // Puntaje 12
+    ];
+    const promedio = metrica.calcularPromedioPuntajeDeCobertura(metricas);
+    expect(promedio).toBe(16);
+  });
 
 });
