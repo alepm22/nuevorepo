@@ -84,4 +84,5 @@ describe("calcularPuntajeLineas", () => {
     expect(metrica.calcularPuntajeLineas(20)).toBe(20);
   });
   
+
 })

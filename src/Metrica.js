@@ -52,9 +52,10 @@ export default class Metrica {
     }
 
     calcularPuntajeLineas(lineasDeCodigo) {
-        if (lineasDeCodigo <= 20) {
-            return 20;
-        } 
+        const numero20 = 20;
+        if (lineasDeCodigo <= numero20) {
+            return numero20;
+        }
     }
 
     calcularPuntajeCobertura(cobertura) {
