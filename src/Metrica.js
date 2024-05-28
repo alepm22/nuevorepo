@@ -69,8 +69,9 @@ export default class Metrica {
 
 
     CalcularPromedioPuntajeDeLineas(metricas){
-        if (metricas.length === 0) {
-            return 0;
+        const cero = 0;
+        if (metricas.length === cero) {
+            return cero;
         }
     }
 

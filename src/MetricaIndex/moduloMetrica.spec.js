@@ -115,5 +115,4 @@ describe("Metrica", () => {
       expect(metrica.CalcularPromedioPuntajeDeLineas(metricas)).toBe(0);
     });
   });
-
 });
