@@ -83,7 +83,9 @@ export default class Metrica {
         const puntaje20 = 20;
         if (cobertura >= 90) {
             return puntaje20;
-        } 
+        } else if (cobertura >= 80) {
+            return 16;
+        }
     }
 
     obtenerDescripcionPruebas(puntajePruebas) {
