@@ -115,4 +115,15 @@ describe("Metrica", () => {
       expect(metrica.CalcularPromedioPuntajeDeLineas(metricas)).toBe(0);
     });
   });
+
+  it("debería calcular el promedio correctamente con métricas válidas", () => {
+    const metricas = [
+      { lineasDeCodigo: 10 },  // Puntaje 20
+      { lineasDeCodigo: 30 },  // Puntaje 16
+      { lineasDeCodigo: 50 }   // Puntaje 12
+    ];
+    const promedio = metrica.CalcularPromedioPuntajeDeLineas(metricas);
+    expect(promedio).toBe(16);
+  });
+
 });

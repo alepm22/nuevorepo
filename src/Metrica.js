@@ -68,14 +68,19 @@ export default class Metrica {
     }
 
 
-    CalcularPromedioPuntajeDeLineas(metricas){
+    CalcularPromedioPuntajeDeLineas(metricas) {
         const cero = 0;
         if (metricas.length === cero) {
             return cero;
         }
+        let sumaPuntajes = 0;
+        metricas.forEach(metrica => {
+            sumaPuntajes += this.calcularPuntajeLineas(metrica.lineasDeCodigo);
+        });
+        return sumaPuntajes / metricas.length;
     }
 
-    
+
 
     calcularPuntajeCobertura(cobertura) {
         if (cobertura >= 90) {
